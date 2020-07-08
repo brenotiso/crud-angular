@@ -1,0 +1,86 @@
+<div class="spinner-container" *ngIf="loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div [hidden]="loading$ | async">
+  <mat-card>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+      <mat-form-field>
+        <input matInput placeholder="Nome" formControlName="name" name="name" />
+        <mat-error *ngIf="name.hasError('required')">
+          Por favor, entre com um nome
+        </mat-error>
+        <mat-error *ngIf="name.hasError('maxlength')">
+          O nome deve ter no máximo 100 caracteres
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Descrição"
+          formControlName="description"
+          name="description"
+        ></textarea>
+        <mat-error *ngIf="description.hasError('required')">
+          Por favor, entre com uma descrição
+        </mat-error>
+        <mat-error *ngIf="description.hasError('maxlength')">
+          A descrição deve ter no máximo 500 caracteres
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Preço (R$)"
+          formControlName="price"
+          (ngModelChange)="calculatePriceWithDiscount()"
+          type="number"
+          name="price"
+        />
+        <mat-error *ngIf="price.hasError('required')">
+          Por favor, entre com um preço
+        </mat-error>
+        <mat-error *ngIf="price.hasError('min')">
+          O preço precisa ser maior que zero
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Desconto (%)"
+          formControlName="discount"
+          (ngModelChange)="calculatePriceWithDiscount()"
+          type="number"
+          name="discount"
+        />
+        <mat-error *ngIf="discount.hasError('required')">
+          Por favor, entre com um desconto
+        </mat-error>
+        <mat-error *ngIf="discount.hasError('min') || discount.hasError('max')">
+          O desconto precisa estar entre 0 e 100 (%)
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Preço com desconto (R$)"
+          [(ngModel)]="priceWithDiscount"
+          name="priceWithDiscount"
+          [ngModelOptions]="{ standalone: true }"
+          disabled
+        />
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-raised-button type="submit" color="primary">
+          Salvar
+        </button>
+
+        <button mat-raised-button type="button" (click)="cancel()" color="warn">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

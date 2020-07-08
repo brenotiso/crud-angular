@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+  <p>{{ dialogData.title }}</p>
+</h1>
+
+<div mat-dialog-content>
+  <p>{{ dialogData.message }}</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button type="button" (click)="onDismiss()" color="primary">
+    {{ dialogData.negativeButtonText }}
+  </button>
+  <button mat-button type="button" (click)="onConfirm()" color="warn">
+    {{ dialogData.positiveButtonText }}
+  </button>
+</div>

@@ -1,5 +1,5 @@
 import { map, catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, EMPTY } from 'rxjs';
@@ -23,6 +23,12 @@ export class ProductService {
     });
   }
 
+  save(product: Product): Observable<Product> {
+    if (product.id) return this.update(product);
+
+    return this.create(product);
+  }
+
   create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product).pipe(
       map((obj) => obj),
@@ -43,6 +49,21 @@ export class ProductService {
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
+  }
+
+  paginateSort(
+    page: number,
+    limit: number,
+    sort: string,
+    order: string
+  ): Observable<HttpResponse<Product[]>> {
+    const url = `${this.baseUrl}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`;
+    return this.http
+      .get<Product[]>(url, { observe: 'response' })
+      .pipe(
+        map((obj) => obj),
+        catchError((e) => this.errorHandler(e))
+      );
   }
 
   update(product: Product): Observable<Product> {

@@ -3,27 +3,51 @@
     {
       "id": 1,
       "name": "Caneta BIC Preta",
-      "price": "5.99"
+      "description": "Caneta",
+      "price": "5.99",
+      "discount": 3
     },
     {
       "id": 2,
       "name": "Nootebook Mac Pro",
-      "price": 12000.89
+      "description": "Apple",
+      "price": 12000,
+      "discount": 10
     },
     {
       "id": 3,
       "name": "Xiomi MI 9",
-      "price": "3799.5"
+      "description": "Xiomi",
+      "price": "3799.5",
+      "discount": "15"
     },
     {
-      "name": "teste categoria",
-      "price": "123",
+      "name": "Tv",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et condimentum massa. Pellentesque mattis efficitur augue in tempus aenean sque mattis efficitur augue in tempus aenean=",
+      "price": 1000,
+      "discount": 90,
       "id": 4
     },
     {
-      "name": "Breno",
-      "price": "34334",
-      "id": 5
+      "id": 5,
+      "name": "Cadeira Gamer Husky Snow",
+      "description": "A Cadeira Gamer Husky Snow proporciona alto conforto e qualidade para as melhores horas do seu dia! Tudo isso aliado a um ótimo custo benefício. Os games do momento ficam ainda mais empolgantes ao serem jogados em uma Cadeira Gamer Husky Snow, pois além do design moderno e robusto, a cadeira proporciona ótima performance nas partidas devido a sensação de conforto que é convertida em foco e concentração, tudo que um gamer de verdade precisa para ser o melhor!",
+      "price": 999.9,
+      "discount": 15
+    },
+    {
+      "id": 6,
+      "name": "Samsung Galaxy S20",
+      "description": "Smartphone Samsung Galaxy S20, Galaxy S20, S20, 128GB, 8GB RAM, Tela Infinita de 6.2\", Camera Tripla Traseira 64MP (Telephoto) + 12MP (Ultra Wide) + 12MP (OIS), Camera Frontal 10MP, IP68, Bateria de 4000mAh, Power Share, Leitor de Digital Ultrassônico, Dual Chip, Android, flash frontal, display alta resolução, amoled, amoled dinâmico, bateria longa duração, memória expansível, Octa Core",
+      "price": 5157.79,
+      "discount": 5
+    },
+    {
+      "id": 7,
+      "name": "Notebook Asus",
+      "description": "Seja para trabalho ou lazer, o ASUS M509 é um notebook básico que oferece desempenho poderoso e recursos visuais imersivos. Sua tela NanoEdge possui um revestimento fosco antirreflexo para uma experiência verdadeiramente envolvente. No interior, ele é equipado com o processador AMD Ryzen 5 3500U com 8GB de RAM e possui placa gráfica AMD Radeon Vega 8.",
+      "price": 3578.84,
+      "discount": 7
     }
   ]
 }

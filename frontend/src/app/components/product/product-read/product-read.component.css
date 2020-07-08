@@ -1,5 +1,9 @@
-table {
+.full-width-table {
   width: 100%;
+}
+
+.description {
+  max-width: 180px;
 }
 
 .edit {
@@ -12,4 +16,10 @@ table {
 
 .delete > i {
   color: #f44336;
+}
+
+.spinner-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }

@@ -4,20 +4,18 @@ import {
   Input,
   ViewContainerRef,
   TemplateRef,
-} from "@angular/core";
+} from '@angular/core';
 
 @Directive({
-  selector: "[myFor]",
+  selector: '[myFor]',
 })
 export class ForDirective implements OnInit {
-  @Input("myForIn") numbers: number[];
+  @Input('myForIn') numbers: number[];
 
   constructor(
     private container: ViewContainerRef,
     private template: TemplateRef<any>
-  ) {
-    console.log("a");
-  }
+  ) {}
 
   ngOnInit(): void {
     for (let number of this.numbers) {
